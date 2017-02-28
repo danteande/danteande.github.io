@@ -453,7 +453,7 @@ var resizePizzas = function(size) {
 
     for (var i = 0; i < thepizzaslist.length; i++) {
 
-      thepizzaslist[i].style.width = newwidth +"%";
+      thepizzaslist[i].style.width = newSize;
     }
   }
 
