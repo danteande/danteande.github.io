@@ -446,12 +446,13 @@ var resizePizzas = function(size) {
     console.log("size " + size);
     console.log("newsize " + newSize);
     var thepizzaslist = document.querySelectorAll(".randomPizzaContainer");
-
+console.log("before " + thepizzaslist[1].style.width);
     for (var i = 0; i < thepizzaslist.length; i++) {
 
       thepizzaslist[i].style.width = newSize;
-        }
 
+        }
+console.log("after " + thepizzaslist[1].style.width);
 /*
     var dx = (newSize - oldSize) * windowWidth;
 
