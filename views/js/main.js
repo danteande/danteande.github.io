@@ -442,7 +442,7 @@ var resizePizzas = function(size) {
       }
   }
 
-    var newSize = sizeSwitcher(size);
+    var newSize = "(100*sizeSwitcher(size))"+"%";
     console.log("size " + size);
     console.log("newsize " + newSize);
     var thepizzaslist = document.querySelectorAll(".randomPizzaContainer");
