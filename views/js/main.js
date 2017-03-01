@@ -450,7 +450,7 @@ console.log("before " + thepizzaslist[1].style.width);
     for (var i = 0; i < thepizzaslist.length; i++) {
 
       thepizzaslist[i].style.width = newSize;
-
+console.log("middle " + thepizzaslist[i].style.width);
         }
 console.log("after " + thepizzaslist[1].style.width);
 /*
