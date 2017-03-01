@@ -440,7 +440,7 @@ var resizePizzas = function(size) {
         default:
           console.log("bug in sizeSwitcher");
       }
-
+  }
 
     var newSize = sizeSwitcher(size);
     console.log("size " + size);
@@ -451,7 +451,7 @@ var resizePizzas = function(size) {
 
       thepizzaslist[i].style.width = newSize;
         }
-      }
+
 /*
     var dx = (newSize - oldSize) * windowWidth;
 
