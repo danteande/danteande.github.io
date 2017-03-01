@@ -443,8 +443,8 @@ var resizePizzas = function(size) {
 
 
     var newSize = sizeSwitcher(size);
-    console.log("size" = size);
-    console.log("newsize" = newSizesize);
+    console.log("size " + size);
+    console.log("newsize " + newSizesize);
     var thepizzaslist = document.querySelectorAll(".randomPizzaContainer");
 
     for (var i = 0; i < thepizzaslist.length; i++) {
