@@ -521,7 +521,7 @@ function updatePositions() {
 
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
 
-    console.log("i%5: " + (i % 5) + " phasem: " + phasemultiplier[(i % 5)] + " phase: " + phase + " basicleft: " + items[i].basicLeft + " result: " + items[i].style.left + " dbst: " + document.body.scrollTop + "mod: " + scrolltopper);
+    //console.log("i%5: " + (i % 5) + " phasem: " + phasemultiplier[(i % 5)] + " phase: " + phase + " basicleft: " + items[i].basicLeft + " result: " + items[i].style.left + " dbst: " + document.body.scrollTop + "mod: " + scrolltopper);
 
   }
 
