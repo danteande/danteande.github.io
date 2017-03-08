@@ -450,7 +450,7 @@ console.log("before " + thepizzaslist[1].style.width);
     for (var i = 0; i < thepizzaslist.length; i++) {
 
       thepizzaslist[i].style.width = newSize;
-console.log("middle " + thepizzaslist[i].style.width);
+
         }
 console.log("after " + thepizzaslist[1].style.width);
 /*
@@ -516,6 +516,7 @@ function updatePositions() {
   var items = document.querySelectorAll('.mover');
   for (var i = 0; i < items.length; i++) {
     var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
+    console.log("i%5: " + (i % 5) + "phase: " + phase);
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
 
