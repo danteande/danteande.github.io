@@ -517,7 +517,7 @@ function updatePositions() {
   var phasemultiplier = [0.7010008989737511,0.978856176516625,0.3567555995966555,-0.5933444303297376, -0.9979263273590055];
   for (var i = 0; i < items.length; i++) {
     var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
-    console.log("i%5: " + (i % 5) + " phasem: " + phasemultiplier[(i % 5)] + " phase: " + phase + " basicleft: " + items[i].basicLeft);
+    console.log("i%5: " + (i % 5) + " phasem: " + phasemultiplier[(i % 5)] + " phase: " + phase + " basicleft: " + items[i].basicLeft + " result: " + items[i].style.left);
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
 
