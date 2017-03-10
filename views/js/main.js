@@ -421,13 +421,7 @@ var resizePizzas = function(size) {
 
   changeSliderLabel(size);
 
-   // Returns the size difference to change a pizza element from one size to another. Called by changePizzaSlices(size).
-  /*function determineDx (elem, size) {
-    var oldWidth = elem.offsetWidth;
-    var windowWidth = document.querySelector("#randomPizzas").offsetWidth;
-    var oldSize = oldWidth / windowWidth;
-  }
-*/
+   // Simplified the slider code here removing the 'dx' function among other things. See comments below.
     // Changes the slider value to a percent width
     function sizeSwitcher (size) {
       switch(size) {
@@ -441,7 +435,7 @@ var resizePizzas = function(size) {
           console.log("bug in sizeSwitcher");
       }
   }
-
+//Moved math outside of loop as it was running style after layout was used in the calculations creating extensive layout thrashing. Runs smooth as butter now ;)
     var newSize = (100*sizeSwitcher(size))+"%";
     console.log("size " + size);
     console.log("newsize " + newSize);
@@ -453,22 +447,8 @@ console.log("before " + thepizzaslist[1].style.width);
 
         }
 console.log("after " + thepizzaslist[1].style.width);
-/*
-    var dx = (newSize - oldSize) * windowWidth;
 
-    return dx;
-
-}
-  // Iterates through pizza elements on the page and changes their widths
-  function changePizzaSizes(size) {
-
-    }
-  }
-
-  changePizzaSizes(size);
-  */
-
-  // User Timing API is awesome
+  // User Timing API is awesome ---Dante: this is pretty cool.
   window.performance.mark("mark_end_resize");
   window.performance.measure("measure_pizza_resize", "mark_start_resize", "mark_end_resize");
   var timeToResize = window.performance.getEntriesByName("measure_pizza_resize");
