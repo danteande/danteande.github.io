@@ -435,16 +435,11 @@ var resizePizzas = function(size) {
           console.log("bug in sizeSwitcher");
       }
   }
-//Moved math outside of loop as it was running style after layout was used in the calculations creating extensive layout thrashing. Runs smooth as butter now ;)
+//Moved math outside of loop as it was running style after layout was used in the calculations creating extensive layout thrashing.
     var newSize = (100*sizeSwitcher(size))+"%";
-    console.log("size " + size);
-    console.log("newsize " + newSize);
     var thepizzaslist = document.querySelectorAll(".randomPizzaContainer");
-console.log("before " + thepizzaslist[1].style.width);
     for (var i = 0; i < thepizzaslist.length; i++) {
-
-      thepizzaslist[i].style.width = newSize;
-
+        thepizzaslist[i].style.width = newSize;
         }
 console.log("after " + thepizzaslist[1].style.width);
 
@@ -494,14 +489,12 @@ function updatePositions() {
   window.performance.mark("mark_start_frame");
 
   var items = document.querySelectorAll('.mover');
+  //created scrolltopper var to move math involving layout outside of loop as it was causing massive layout thrashing.
   var scrolltopper = document.body.scrollTop
-  var phasemultiplier = [0.7010008989737511,0.978856176516625,0.3567555995966555,-0.5933444303297376, -0.9979263273590055];
   for (var i = 0; i < items.length; i++) {
     var phase = Math.sin((scrolltopper / 1250) + (i % 5));
 
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
-
-    //console.log("i%5: " + (i % 5) + " phasem: " + phasemultiplier[(i % 5)] + " phase: " + phase + " basicleft: " + items[i].basicLeft + " result: " + items[i].style.left + " dbst: " + document.body.scrollTop + "mod: " + scrolltopper);
 
   }
 
