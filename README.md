@@ -10,7 +10,7 @@ Your challenge, if you wish to accept it (and we sure hope you will), is to opti
 
 
 
-1. You have downloaded/accessed the repository if you are reading this readme
+1. You have downloaded/accessed the repository if you are reading this readme.
 1. Run index.html in the main directory to see Part 1 of the project, that is, optimizing the page load speed of index.html
-1. Click on the Pizzeria project to see Part 2: optimizing the response time and animations on views/main.js
-1. You can check out other projects on index.html as I have customized the portfolio to a certain extent.
+1. Click on the Pizzeria project to see Part 2: optimizing the response time and animations on views/js/main.js
+1. You can check out the other items on index.html as I have customized the portfolio to a certain extent.
