@@ -441,7 +441,7 @@ var resizePizzas = function(size) {
     for (var i = 0; i < thepizzaslist.length; i++) {
         thepizzaslist[i].style.width = newSize;
         }
-console.log("after " + thepizzaslist[1].style.width);
+
 
   // User Timing API is awesome ---Dante: this is pretty cool.
   window.performance.mark("mark_end_resize");
