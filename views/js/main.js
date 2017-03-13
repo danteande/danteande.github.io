@@ -424,7 +424,7 @@ var resizePizzas = function(size) {
   changeSliderLabel(size);
 
    // Simplified the slider code here removing the 'dx' function among other things. See comments below.
-    // Changes the slider value to a percent width
+   // Changes the slider value to a percent width
     function sizeSwitcher (size) {
       'use strict';
       switch(size) {
@@ -438,10 +438,11 @@ var resizePizzas = function(size) {
           console.log("bug in sizeSwitcher");
       }
   }
-//Moved math outside of loop as it was running style after layout was used in the calculations creating extensive layout thrashing.
+    //Moved math outside of loop as it was running style after layout was used in the calculations creating extensive layout thrashing.
+    //changed to getElementsByClassName and created a variable for loop end condition to improve speed
     var newSize = (100*sizeSwitcher(size))+"%";
-    var thepizzaslist = document.querySelectorAll(".randomPizzaContainer");
-    for (var i = 0; i < thepizzaslist.length; i++) {
+    var thepizzaslist = document.getElementsByClassName("randomPizzaContainer");
+    for (var i = 0, len = thepizzaslist.length; i < len; i++) {
         thepizzaslist[i].style.width = newSize;
         }
 
