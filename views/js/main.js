@@ -408,13 +408,13 @@ var resizePizzas = function(size) {
   function changeSliderLabel(size) {
     switch(size) {
       case "1":
-        document.querySelector("#pizzaSize").innerHTML = "Small";
+        document.getElementById("pizzaSize").innerHTML = "Small";
         return;
       case "2":
-        document.querySelector("#pizzaSize").innerHTML = "Medium";
+        document.getElementById("pizzaSize").innerHTML = "Medium";
         return;
       case "3":
-        document.querySelector("#pizzaSize").innerHTML = "Large";
+        document.getElementById("pizzaSize").innerHTML = "Large";
         return;
       default:
         console.log("bug in changeSliderLabel");
@@ -426,6 +426,7 @@ var resizePizzas = function(size) {
    // Simplified the slider code here removing the 'dx' function among other things. See comments below.
     // Changes the slider value to a percent width
     function sizeSwitcher (size) {
+      'use strict';
       switch(size) {
         case "1":
           return 0.25;
