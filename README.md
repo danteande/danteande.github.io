@@ -1,17 +1,31 @@
 ## Website Performance Optimization portfolio project
 
+##### Project Overview FEND Project 4 - Udacity
+
 Your challenge, if you wish to accept it (and we sure hope you will), is to optimize this online portfolio for speed! In particular, optimize the critical rendering path and make this page render as quickly as possible by applying the techniques you've picked up in the [Critical Rendering Path course](https://www.udacity.com/course/ud884).
 
 
 
 ### This repository is my submission for the above project
 
-####Instructions
+##Getting Started
 
-1. You have downloaded/accessed the repository if you are reading this README.
-1. Run index.html in the main directory to see Part 1 of the project, that is, optimizing the page load speed of index.html
-1. Click on the Pizzeria project to see Part 2: optimizing the response time and animations on views/js/main.js
-1. You can check out the other items on index.html as I have customized the portfolio to a certain extent.
+####Live Version
+
+1. https://danteande.github.io/
+1. You can run dev tools to see the code and performnace metrics: For Chrome Dev tools on a Mac hit option-command-J
+
+####Local Version
+
+1. Clone this repository
+1. Run a local server with python SimpleHTTPServer, instructions here: https://docs.python.org/2/library/basehttpserver.html Warning: This requires some set-up if you are new to it.
+
+
+#### Using Site
+
+1. You should see the main page of the site if you followed the above instructions. That is index.html in the top-level directory. This page required improvements in page loading per the project.
+1. Click on the 'Cam's Pizzeria' item in the list to see Part 2 of the project: optimizing the response time and animations on views/js/main.js
+1. You can check out the other items on index.html as I have customized the portfolio to a certain extent showing other projects completed for the FEND course.
 
 
 ####Changes
@@ -38,3 +52,5 @@ Your challenge, if you wish to accept it (and we sure hope you will), is to opti
 1. Math() function: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/ceil
 1. style.top property: https://www.w3schools.com/jsref/prop_style_top.asp
 1. window innerHeight property: https://www.w3schools.com/jsref/prop_win_innerheight.asp
+1. backface-visibility property: https://developer.mozilla.org/en-US/docs/Web/CSS/backface-visibility
+1. Adding requestAnimationFrame to scrolling: https://www.html5rocks.com/en/tutorials/speed/animations/
