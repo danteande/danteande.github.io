@@ -1,24 +1,8 @@
-#htaccess cache tweaks per PageSpeed
-# 2 hours for analytics file
-#<filesMatch "http://www.google-analytics.com/analytics.js$">
-#Header set Cache-Control "max-age=7200, public"
-#</filesMatch>
-# 10 minutes for list of files mentioned by pagespeed
-<filesMatch "/js/perfmatters\\.js$">
-Header set Cache-Control "max-age=600, public"
-</filesMatch>
-<filesMatch "/css/print\\.css$">
-Header set Cache-Control "max-age=600, public"
-</filesMatch>
-# 10 minutes for all jpg files
-<filesMatch ".(jpg|png)$">
-Header set Cache-Control "max-age=600, public"
-</filesMatch>
-
-
-
-
-
-<FilesMatch "jquery-ui\\.css$">
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresDefault "now"
+    <FilesMatch "/css/print.css$">
         ExpiresByType text/css "access plus 1 month"
     </FilesMatch>
+    
+</IfModule>
