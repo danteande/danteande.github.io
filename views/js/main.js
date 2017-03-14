@@ -515,9 +515,12 @@ function updatePositions() {
 
 // runs updatePositions on scroll
 window.addEventListener('scroll', updatePositions);
-
 // Generates the sliding pizzas when the page loads.
+// added strict - love this - finally something to clean up nutty js code
+//Speed improvements: 
 //calculating rows by dividing screen height by height of pizza element to dynamically generate pizzas needed
+// added var elem to for loop definition to prevent its creation every iteration
+//moved movingpizzas definiton to outside loop and used getElementById
 document.addEventListener('DOMContentLoaded', function() {
   'use strict';
   var cols = 8;
@@ -526,14 +529,16 @@ document.addEventListener('DOMContentLoaded', function() {
   var rows = Math.ceil(h / s)
   var pizzasNeeded = cols * rows
   var elem = document.createElement('img');
-  for (var i = 0; i < pizzasNeeded; i++) {
+  var movingPizzas = document.getElementById('movingPizzas1');
+  for (var i = 0, elem; i < pizzasNeeded; i++) {
+    elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
     elem.style.height = "100px";
     elem.style.width = "73.333px";
     elem.basicLeft = (i % cols) * s;
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
-    document.querySelector("#movingPizzas1").appendChild(elem);
+    movingPizzas.appendChild(elem);
   }
   updatePositions();
 });
