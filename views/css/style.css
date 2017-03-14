@@ -28,8 +28,10 @@ form {
 #pizzaSize {
   font-weight: 800;
 }
-
+/** adding transform and backface visibility parameters to improve performance */
 .mover {
+  transform: translateZ(0);
+  backface-visibility: hidden;
   position: fixed;
   width: 256px;
   z-index: -1;
