@@ -496,9 +496,9 @@ function updatePositions() {
 
   var items = document.querySelectorAll('.mover');
   //created scrolltopper var to move math involving layout outside of loop as it was causing massive layout thrashing.
-  var scrolltopper = document.body.scrollTop
+  var scrollTopper = document.body.scrollTop
   for (var i = 0; i < items.length; i++) {
-    var phase = Math.sin((scrolltopper / 1250) + (i % 5));
+    var phase = Math.sin((scrollTopper / 1250) + (i % 5));
 
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
 
@@ -512,15 +512,12 @@ function updatePositions() {
     var timesToUpdatePosition = window.performance.getEntriesByName("measure_frame_duration");
     logAverageFrame(timesToUpdatePosition);
   }
+  window.requestAnimationFrame(updatePositions);
 }
 
 // runs updatePositions on scroll
-//window.addEventListener('scroll', updatePositions);
-window.addEventListener('scroll', function() {
-  'use strict';
-    window.requestAnimationFrame(updatePositions);
+window.addEventListener('scroll', window.requestAnimationFrame(updatePositions);
 
-});
 // Generates the sliding pizzas when the page loads.
 // added strict - love this - finally something to clean up nutty js code
 //Speed improvements:
