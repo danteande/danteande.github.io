@@ -522,7 +522,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
   var h = window.innerHeight;
-  var rows = h/100
+  var rows = Math.ceil(h / 256)
   pizzasNeeded = cols * rows
   for (var i = 0; i < pizzasNeeded; i++) {
     var elem = document.createElement('img');
@@ -533,7 +533,7 @@ document.addEventListener('DOMContentLoaded', function() {
     elem.basicLeft = (i % cols) * s;
 
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
-    console.log("elem.basicLeft !! " + (i % cols)+ " h " + h +" rows " + rows +" height "+ window.innerHeight + " styletop" + elem.style.top) ;
+    console.log("elem.basicLeft !!! " + (i % cols) * s + " h " + h +" rows " + rows + " styletop" + elem.style.top + "   " + pizzasNeeded) ;
     document.querySelector("#movingPizzas1").appendChild(elem);
   }
   updatePositions();
