@@ -1,8 +1,8 @@
 <IfModule mod_expires.c>
     ExpiresActive On
     ExpiresDefault "now"
-    <FilesMatch "/css/print.css$">
+    <FilesMatch "/css/print\\.css$">
         ExpiresByType text/css "access plus 1 month"
     </FilesMatch>
-    
+
 </IfModule>
