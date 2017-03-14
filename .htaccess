@@ -1,8 +1,27 @@
-# One year for image files
-<filesMatch ".(jpg|jpeg|png|gif|ico)$">
-Header set Cache-Control "max-age=31536000, public"
+#htaccess cache tweaks per PageSpeed
+# 2 hours for analytics file
+<filesMatch "http://www.google-analytics.com/analytics\\.js$">
+Header set Cache-Control "max-age=7200, public"
 </filesMatch>
-# One month for css and js
-<filesMatch ".(css|js)$">
-Header set Cache-Control "max-age=2628000, public"
+# 10 minutes for list of files mentioned by pagespeed
+<filesMatch "https://danteande.github.io/js/perfmatters\\.js$">
+Header set Cache-Control "max-age=600, public"
 </filesMatch>
+<filesMatch "https://danteande.github.io/css/print\\.css$">
+Header set Cache-Control "max-age=600, public"
+</filesMatch>
+<filesMatch "https://danteande.github.io/css/print\\.css$">
+Header set Cache-Control "max-age=600, public"
+</filesMatch>
+# 10 minutes for all jpg files
+<filesMatch ".(jpg|png)$">
+Header set Cache-Control "max-age=600, public"
+</filesMatch>
+
+
+
+
+
+<FilesMatch "jquery-ui\\.css$">
+        ExpiresByType text/css "access plus 1 month"
+    </FilesMatch>

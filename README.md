@@ -40,18 +40,18 @@ Your challenge, if you wish to accept it (and we sure hope you will), is to opti
 1. Most changes were image optimizations using Photoshop.
 1. Note the inlining of the one image, that seems to have lots of practical applications when you need to 'snag' a photo out in the wild - though it is a royal pain to have the data chunk in the middle of the code. Next time, it would be good to add a js file that holds those.
 
-#####views/js/main.js
+##### views/js/main.js
 
 1. The slider was layout thrashing by running style in a loop after a (overly-complicated) calculation using a layout parameter.
 1. The pizza animations basically had the same problem as the slider so I simplified that code to get the layout parameter outside of the loop to remove the thrashing, i.e. Forced Synchronous Layout.
 
-#####views/css/style.css
+##### views/css/style.css
 
 1. Added transform and backface visibility parameters to improve performance to mover object
 
 
 
-#####Selected Resources
+##### Selected Resources
 
 1. Pagespeed: https://developers.google.com/speed/pagespeed/insights/?url=http%3A%2F%2Fdanteande.github.io%2F&tab=desktop
 1. Math() function: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/ceil
@@ -60,3 +60,4 @@ Your challenge, if you wish to accept it (and we sure hope you will), is to opti
 1. backface-visibility property: https://developer.mozilla.org/en-US/docs/Web/CSS/backface-visibility
 1. requestAnimationFrame method: https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame
 1. Adding requestAnimationFrame to scrolling: https://www.html5rocks.com/en/tutorials/speed/animations/
+1. scroll event: https://www.w3schools.com/jsref/event_onscroll.asp
