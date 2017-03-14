@@ -490,6 +490,7 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 
 // Moves the sliding background pizzas based on scroll position
 function updatePositions() {
+  'use strict';
   frame++;
   window.performance.mark("mark_start_frame");
 
@@ -514,10 +515,15 @@ function updatePositions() {
 }
 
 // runs updatePositions on scroll
-window.addEventListener('scroll', updatePositions);
+//window.addEventListener('scroll', updatePositions);
+window.addEventListener('scroll', function() {
+  'use strict';
+    window.requestAnimationFrame(updatePositions);
+
+});
 // Generates the sliding pizzas when the page loads.
 // added strict - love this - finally something to clean up nutty js code
-//Speed improvements: 
+//Speed improvements:
 //calculating rows by dividing screen height by height of pizza element to dynamically generate pizzas needed
 // added var elem to for loop definition to prevent its creation every iteration
 //moved movingpizzas definiton to outside loop and used getElementById
