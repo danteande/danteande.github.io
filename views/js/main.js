@@ -516,7 +516,7 @@ function updatePositions() {
 }
 
 // runs updatePositions on scroll
-window.addEventListener('scroll', window.requestAnimationFrame(updatePositions);
+window.addEventListener('scroll', window.requestAnimationFrame(updatePositions));
 
 // Generates the sliding pizzas when the page loads.
 // added strict - love this - finally something to clean up nutty js code
