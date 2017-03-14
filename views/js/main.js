@@ -519,21 +519,20 @@ window.addEventListener('scroll', updatePositions);
 // Generates the sliding pizzas when the page loads.
 //calculating rows by dividing screen height by height of pizza element to dynamically generate pizzas needed
 document.addEventListener('DOMContentLoaded', function() {
+  'use strict';
   var cols = 8;
-  var s = 256;
+  var s = 256; //row height
   var h = window.innerHeight;
-  var rows = Math.ceil(h / 256)
+  var rows = Math.ceil(h / s)
   pizzasNeeded = cols * rows
+  var elem = document.createElement('img');
   for (var i = 0; i < pizzasNeeded; i++) {
-    var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
     elem.style.height = "100px";
     elem.style.width = "73.333px";
     elem.basicLeft = (i % cols) * s;
-
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
-    console.log("elem.basicLeft !!! " + (i % cols) * s + " h " + h +" rows " + rows + " styletop" + elem.style.top + "   " + pizzasNeeded) ;
     document.querySelector("#movingPizzas1").appendChild(elem);
   }
   updatePositions();
