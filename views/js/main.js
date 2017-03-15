@@ -441,7 +441,7 @@ var resizePizzas = function(size) {
   }
     //Improvements: Moved math outside of loop as it was running style after layout was used in the calculations creating extensive layout thrashing.
     //changed querySelectorAll to getElementsByClassName
-    //and created a variable for loop end condition to improve speed
+    //and created a variable for loop end condition (array length) so it is not acceesed every loop to improve speed
     var newSize = (100*sizeSwitcher(size))+"%";
     var thepizzaslist = document.getElementsByClassName("randomPizzaContainer");
     for (var i = 0, len = thepizzaslist.length; i < len; i++) {
@@ -517,7 +517,7 @@ function updatePositions() {
     logAverageFrame(timesToUpdatePosition);
   }
 }
-
+//Improvements: The 3 functions below allow use requestAnimationFrame to run with scroll events. These are needed to stop the animatons firing when scrolling stops. updatePositions above resets some variabes to make this work.
 var latestKnownScrollY = 0,
 	ticking = false;
 
@@ -542,11 +542,11 @@ var currentScrollY = latestKnownScrollY;
 window.addEventListener('scroll',onScroll);
 
 // Generates the sliding pizzas when the page loads.
-// added strict - love this - finally something to clean up nutty js code
-//Speed improvements:
-//calculating rows by dividing screen height by height of pizza element to dynamically generate pizzas needed
+
+// Improvements: added strict - love this - finally something to clean up nutty js code
+//Calculating rows by dividing screen height by height of pizza element to dynamically generate pizzas needed
 // added var elem to for loop definition to prevent its creation every iteration
-//moved movingpizzas definiton to outside loop and used getElementById
+//moved movingpizzas definiton to outside loop and used getElementById for movingPizzas1
 document.addEventListener('DOMContentLoaded', function() {
   'use strict';
   var cols = 8;
@@ -554,7 +554,6 @@ document.addEventListener('DOMContentLoaded', function() {
   var h = window.innerHeight;
   var rows = Math.ceil(h / s);
   var pizzasNeeded = cols * rows;
-  console.log(pizzasNeeded);
   var elem = document.createElement('img');
   var movingPizzas = document.getElementById('movingPizzas1');
   for (var i = 0, elem; i < pizzasNeeded; i++) {

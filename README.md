@@ -42,12 +42,18 @@ Your challenge, if you wish to accept it (and we sure hope you will), is to opti
 
 ##### views/js/main.js
 
-1. The slider was layout thrashing by running style in a loop after a (overly-complicated) calculation using a layout parameter.
-1. The pizza animations basically had the same problem as the slider so I simplified that code to get the layout parameter outside of the loop to remove the thrashing, i.e. Forced Synchronous Layout.
+1. Generally, The slider was layout thrashing by running style in a loop after a (overly-complicated) calculation using a layout parameter. The pizza animations basically had the same problem as the slider so I simplified that code to get the layout parameter outside of the loop to remove the thrashing, i.e. Forced Synchronous Layout.
+1. I added 'use strict' on any function I touched. I love this. JS is impossible to understand because it is so flaky IMHO. And throughout replaced all instances of querySelectorAll with getElementById/getElementsByClassName because it is more efficient.
+1. I tried to preface all of my comments inline with 'Improvements:'
+1. Specifically:
+1. For the resizer code, I moved the math outside of loop as it was running style after layout creating extensive layout thrashing and I created a variable for the loop end condition inside the definition of the for loop  so it is not calculated every iteration.
+1. For the randomPizzas for loop, moved pizzasDiv definition to outside of loop so it is defined only once.
+1. For the scrolling animation I am dynamically calculating pizzas needed by dividing screen height (window.innerHeight) by height of pizza element for rows and then multiplying by columns. Also added var elem to for loop definition to prevent its creation every iteration. And moved movingpizzas variable definition to outside loop and used getElementById (faster) for movingPizzas1.
+1. Determined to use requestAnimationFrame  :) for updatePositions, I have to research some tricks to get the method to stop when scrolling stops. see Scroll event resource below for more details.
 
 ##### views/css/style.css
 
-1. Added transform and backface visibility parameters to improve performance to mover object
+1. Added transform and backface visibility parameters to improve performance to mover class.
 
 
 
@@ -60,4 +66,4 @@ Your challenge, if you wish to accept it (and we sure hope you will), is to opti
 1. backface-visibility property: https://developer.mozilla.org/en-US/docs/Web/CSS/backface-visibility
 1. requestAnimationFrame method: https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame
 1. Adding requestAnimationFrame to scrolling: https://www.html5rocks.com/en/tutorials/speed/animations/
-1. scroll event: https://www.w3schools.com/jsref/event_onscroll.asp
+1. Scroll event: https://www.w3schools.com/jsref/event_onscroll.asp
