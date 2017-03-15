@@ -487,16 +487,17 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 
 // The following code for sliding background pizzas was pulled from Ilya's demo found at:
 // https://www.igvita.com/slides/2012/devtools-tips-and-tricks/jank-demo.html
-
 // Moves the sliding background pizzas based on scroll position
+
+//changes: - use strict, added getElementById for mover, ticking and currentScrollY are used for implementing requestAnimationFrame on updatePositions - see comments below
+//created scrollTopper var to move math involving layout outside of loop as it was causing massive layout thrashing.
 function updatePositions() {
   'use strict';
   frame++;
   window.performance.mark("mark_start_frame");
   ticking = false;
   var currentScrollY = latestKnownScrollY;
-  var items = document.querySelectorAll('.mover');
-  //created scrolltopper var to move math involving layout outside of loop as it was causing massive layout thrashing.
+  var items = document.getElementById('mover');
   var scrollTopper = document.body.scrollTop
   for (var i = 0; i < items.length; i++) {
     var phase = Math.sin((scrollTopper / 1250) + (i % 5));
