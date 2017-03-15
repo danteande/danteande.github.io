@@ -552,8 +552,9 @@ document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256; //row height
   var h = window.innerHeight;
-  var rows = Math.ceil(h / s)
-  var pizzasNeeded = cols * rows
+  var rows = Math.ceil(h / s);
+  var pizzasNeeded = cols * rows;
+  console.log(pizzasNeeded);
   var elem = document.createElement('img');
   var movingPizzas = document.getElementById('movingPizzas1');
   for (var i = 0, elem; i < pizzasNeeded; i++) {
