@@ -51,7 +51,7 @@ Warning: This requires some set-up if you are new to it.
 1. For the resizer slider code, I moved the math outside of loop as it was running style after layout creating extensive layout thrashing and I created a variable for the loop end condition inside the definition of the for loop  so it is not calculated every iteration.
 1. For the randomPizzas for loop, moved pizzasDiv definition to outside of loop so it is defined only once.
 1. For the scrolling animation I am dynamically calculating pizzas needed by dividing screen height (window.innerHeight) by height of pizza element for rows and then multiplying by columns. Also added var elem to for loop definition to prevent its creation every iteration. And moved movingpizzas variable definition to outside loop and used getElementById (faster) for movingPizzas1.
-1. Determined to use requestAnimationFrame  :) for updatePositions, I had to research some tricks to get the method to stop when scrolling stops. see Selected Resources item 7 below for more details.
+1. Determined to use requestAnimationFrame  :) for updatePositions, I had to research some tricks to get the method to stop when scrolling stops. see Selected Resources item 8 below for more details.
 
 ##### views/css/style.css
 
