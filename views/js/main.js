@@ -405,6 +405,7 @@ var resizePizzas = function(size) {
   window.performance.mark("mark_start_resize");   // User Timing API function
 
   // Changes the value for the size of the pizza above the slider
+  //Improvements: replaced querySelectorAll with getElementById as it is more efficient
   function changeSliderLabel(size) {
     switch(size) {
       case "1":
@@ -438,8 +439,9 @@ var resizePizzas = function(size) {
           console.log("bug in sizeSwitcher");
       }
   }
-    //Moved math outside of loop as it was running style after layout was used in the calculations creating extensive layout thrashing.
-    //changed to getElementsByClassName and created a variable for loop end condition to improve speed
+    //Improvements: Moved math outside of loop as it was running style after layout was used in the calculations creating extensive layout thrashing.
+    //changed querySelectorAll to getElementsByClassName
+    //and created a variable for loop end condition to improve speed
     var newSize = (100*sizeSwitcher(size))+"%";
     var thepizzaslist = document.getElementsByClassName("randomPizzaContainer");
     for (var i = 0, len = thepizzaslist.length; i < len; i++) {
@@ -459,7 +461,7 @@ var resizePizzas = function(size) {
 window.performance.mark("mark_start_generating"); // collect timing data
 
 // This for-loop actually creates and appends all of the pizzas when the page loads
-//Moved pizzasDiv definition to outside of loop
+//Improvements: Moved pizzasDiv definition to outside of loop
 var pizzasDiv = document.getElementById('randomPizzas');
 for (var i = 2; i < 100; i++) {
     pizzasDiv.appendChild(pizzaElementGenerator(i));
@@ -489,7 +491,7 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 // https://www.igvita.com/slides/2012/devtools-tips-and-tricks/jank-demo.html
 // Moves the sliding background pizzas based on scroll position
 
-//changes: - use strict, added getElementById for mover, ticking and currentScrollY are used for implementing requestAnimationFrame on updatePositions - see comments below
+//Improvements: - use strict, added getElementsByClassName for mover, ticking and currentScrollY are used for implementing requestAnimationFrame on updatePositions - see comments below
 //created scrollTopper var to move math involving layout outside of loop as it was causing massive layout thrashing.
 function updatePositions() {
   'use strict';
@@ -497,7 +499,7 @@ function updatePositions() {
   window.performance.mark("mark_start_frame");
   ticking = false;
   var currentScrollY = latestKnownScrollY;
-  var items = document.getElementById('mover');
+  var items = document.getElementsByClassName('mover');
   var scrollTopper = document.body.scrollTop
   for (var i = 0; i < items.length; i++) {
     var phase = Math.sin((scrollTopper / 1250) + (i % 5));
