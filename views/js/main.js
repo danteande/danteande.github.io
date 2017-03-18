@@ -505,7 +505,7 @@ function updatePositions() {
 
 for (var i = 0; i < 5; i++) {
     phase.push(Math.sin(scrollTopper / 1250 + i) * 100);
-
+};
   for (var i = 0, stop = items.length; i < stop; i++) {
     //var phase = Math.sin((scrollTopper / 1250) + (i % 5));
 
@@ -513,7 +513,7 @@ for (var i = 0; i < 5; i++) {
 
     //for (var i = 0, max = items.length; i < max; i++) {
         items[i].style.left = items[i].basicLeft + phase[i%5] + 'px';
-  }
+  };
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
   // Super easy to create custom metrics.
