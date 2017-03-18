@@ -34,7 +34,7 @@ Warning: This requires some set-up if you are new to it.
 ##### Index.html
 
 
-1. Original PageSpeed scores were in the 30s/40s for deskyop/mobile but now are 92/92.
+1. Original PageSpeed scores were in the 30s/40s for desktop/mobile but now are 92/92.
 1. I personalized the site as suggested by the instructors. This includes photos of me and additions of my other FEND projects. I left the 2048 game in as I will definitely take that course AND I thought shortening the list of items would be 'cheating' regarding the page load speed improvement task.
 1. I tried to preface all of my comments inline with 'Improvements:' in this and all other changed files.
 1. Inlined CSS from css/style.css
@@ -62,12 +62,12 @@ Warning: This requires some set-up if you are new to it.
 
 1. My original project scored 92/92 mobile/desktop. This was fine with the 1st review.
 1. The 2nd reviewer showed my results as 87/90. Needless to say I was a little shocked:
-![2nd Review Score](/views/images/Review PS Score.png)
+![2nd Review Score](views/images/ReviewPSScore.png)
 1. Scores after 2nd Review but before any changes
-![After 2nd Review before changes](/views/images/A2RBC PS Score.png)
+![After 2nd Review before changes](views/images/A2RBCPSScore.png)
 1. Current scores
-![ACurrent score](/views/images/Current PS Score1.png)
-![ACurrent score](/views/images/Current PS Score2.png)
+![Current score mobile](views/images/CurrentPSScore1.png)
+![Current score desktop](views/images/CurrentPSScore2.png)
 
 
 ##### Selected Resources
