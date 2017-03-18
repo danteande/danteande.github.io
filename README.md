@@ -58,6 +58,17 @@ Warning: This requires some set-up if you are new to it.
 1. Added transform and backface visibility parameters to improve performance to mover class.
 
 
+##### PageSpeed Notes
+
+1. My original project scored 92/92 mobile/desktop. This was fine with the 1st review.
+1. The 2nd reviewer showed my results as 87/90. Needless to say I was a little shocked:
+![2nd Review Score](/views/images/Review PS Score.png)
+1. Scores after 2nd Review but before any changes
+![After 2nd Review before changes](/views/images/A2RBC PS Score.png)
+1. Current scores
+![ACurrent score](/views/images/Current PS Score1.png)
+![ACurrent score](/views/images/Current PS Score2.png)
+
 
 ##### Selected Resources
 
