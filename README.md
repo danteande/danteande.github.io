@@ -63,11 +63,14 @@ Warning: This requires some set-up if you are new to it.
 1. My original project scored 92/92 mobile/desktop. This was fine with the 1st review.
 1. The 2nd reviewer showed my results as 87/90. Needless to say I was a little shocked:
 ![2nd Review Score](views/images/ReviewPSScore.png)
+<br><br>
 1. Scores after 2nd Review but before any changes
 ![After 2nd Review before changes](views/images/A2RBCPSScore.png)
+<br><br>
 1. Current scores
 ![Current score mobile](views/images/CurrentPSScore1.png)
 ![Current score desktop](views/images/CurrentPSScore2.png)
+<br><br>
 
 
 ##### Selected Resources
