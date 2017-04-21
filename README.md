@@ -41,6 +41,7 @@ Warning: This requires some set-up if you are new to it.
 
 ##### Selected Resources
 
+1. Thanks to Google and Foursquare for their respective data sets and APIs; specifically google maps api and Foursquare venues data.
 1. Snazzy Maps: https://snazzymaps.com/style/78983/hockey
 1. Udacity Project 5 sample repo: https://github.com/udacity/ud864/blob/master/Project_Code_3_WindowShoppingPart1.html
 1. Utility Functions in KnockoutJS: http://www.knockmeout.net/2011/04/utility-functions-in-knockoutjs.html
