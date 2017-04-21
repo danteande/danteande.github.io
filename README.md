@@ -35,9 +35,14 @@ Warning: This requires some set-up if you are new to it.
 1. Finding a close hockey rink with an adult ice hockey league is difficult particularly for people in Marin County.
 1. The maps shows highways in black lines.
 1. Clicking on a pin shows an information window for that rink including address, and website address and phone number where available.
-1. Clicking on a rink in the list on the left, zooms to that location and show its information.
-1. The search bar filters based on character string search; so if you type in 'oak', the rink in Oakland remains in the list while the others disappear.
+1. Clicking on a rink in the list on the left zooms to that location and show its information.
+1. The search bar at the top filters the rink list based on character string search; so if you type in 'oak', the rink in Oakland remains in the list while the others disappear.
 1. You can reset the map to its original state showing the full Bay area by hitting the reset button.
+
+#### Future upgrades
+
+1. Get the delayed pin-drop working
+1. Add user address and determine closest rink by automobile travel
 
 ##### Selected Resources
 
