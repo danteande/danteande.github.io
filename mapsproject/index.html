@@ -9,15 +9,13 @@
 
 </head>
 <body>
-<div id="map" class="hockey-map" size="100px"></div>
+<div id="map" class="hockey-map"></div>
 <div class="left-page">
 			<div class="input-field">
-			<input type="search" placeholder="Search for a Hockey Rink, e.g., enter a town name" data-bind="textInput: searchTerm, valueUpdate: 'keyup'" />
-			<!-- <input class="search-box" id="search-box" data-bind="textInput: searchTerm, valueUpdate: 'afterkeydown'" />
-			-->
+			<input type="search" placeholder="Filter Rink list" data-bind="textInput: searchTerm, valueUpdate: 'keyup'" />
 			</div>
 
-<!--list view-->
+
 	<div class="transbox">
 		<div class="list-area">
 			<h3>Rinks with Adult Hockey Leagues</h3>
@@ -27,16 +25,13 @@
 				<button id="resetButton" type="button" onclick="reloadPage()">Reset Map</button><br><br><br>
 				<small>    Suggestion: Find a close rink, check out its site then call for League info</small>
 			</div>
-
 	</div>
 </div>
 
-<!-- consider this in a new div: <div class="map" id="map">If you can read this, there has been an error loading Google Maps. Please Try Again.</div> -->
-
-	<script type="text/javascript" src="js/knockout-3.4.2.js"></script>
-	<script type="text/javascript" src="js/maps.js"></script>
-	<script src="https://code.jquery.com/jquery.min.js"></script>
-	<script async defer type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjE8bUgRCXjZjSuQnvburEMvasHCaQo6M&libraries=places&callback=initApp" onerror="mapsError()"></script>
+<script type="text/javascript" src="js/knockout-3.4.2.js"></script>
+<script type="text/javascript" src="js/maps.js"></script>
+<script src="https://code.jquery.com/jquery.min.js"></script>
+<script async defer type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjE8bUgRCXjZjSuQnvburEMvasHCaQo6M&libraries=places&callback=initApp" onerror="mapsError()"></script>
 
 </body>
 </html>
