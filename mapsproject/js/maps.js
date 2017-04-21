@@ -386,7 +386,7 @@ function ViewModel() {
 								type: "GET",
 								dataType: 'json',
 								cache: false,
-								url: 'https://api.foursquare.com/v2/venues/' + rink.fsID + '?client_id=' + CLIENT_ID_Foursquare + '&client_secret=' + CLIENT_SECRET_Foursquare+ '&v=20170419',
+								url: 'https://api.foursquare.com/v2/venues/' + rink.fsID + '?client_id=' + CLIENT_ID_Foursquare + '&client_secret=' + CLIENT_SECRET_Foursquare+ '&vv=20170419',
 								async: true,
 								success: function(data) {
 										//console.log(data.response);
