@@ -74,7 +74,7 @@ function ViewModel() {
 	function loadMap() {
 			map = new google.maps.Map(document.getElementById("map"), {
 			center: {lat: 37.997726, lng: -122.5329007},
-			zoom: 8,
+			zoom: 8, //optimal setting for mobile even though 9 is possible on PC screens
 			mapTypeId: google.maps.MapTypeId.ROADMAP,
 			mapTypeControl: false,
 			//Used the 'Hockey' style - how perfect!- from Snazzy but made labels and major highways Black for better readability and cool factor.
@@ -386,7 +386,7 @@ function ViewModel() {
 								type: "GET",
 								dataType: 'json',
 								cache: false,
-								url: 'https://api.foursquare.com/v2/venues/' + rink.fsID + '?client_id=' + CLIENT_ID_Foursquare + '&client_secret=' + CLIENT_SECRET_Foursquare+ '&vv=20170419',
+								url: 'https://api.foursquare.com/v2/venues/' + rink.fsID + '?client_id=' + CLIENT_ID_Foursquare + '&client_secret=' + CLIENT_SECRET_Foursquare+ '&v=20170419',
 								async: true,
 								success: function(data) {
 										//console.log(data.response);
@@ -426,7 +426,7 @@ function ViewModel() {
 										});
 								},
 								error: function(error) {
-										alert("Foursquare could not load data. Check your Internet connection as a possible source of the problem.");
+										alert("Foursquare could not load data. The pins on the map will not show information if you click them. Please try the app later.");
 								}
 						});
 //}, index * 400); //trying unsuccessfully to get markers to drop one-at-a-time
@@ -471,9 +471,11 @@ function reloadPage(){
    window.location.reload();
 };
 
+//Google Maps error handling
 function mapsError() {
-		alert('Google Maps could not load. Check your Internet connection as a likely source of the problem.')
+		alert('Google Maps could not load. Please try the app again later.')
 
+//this might have limited value on a web server. It was helpful when run locally.
 document.getElementById("map").innerHTML = "<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>------------------------------------------------------------------- ------------If you can read this, there has been an error loading Google Maps. Please Try Again.";
 };
 
