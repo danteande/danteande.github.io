@@ -43,10 +43,6 @@ var Rinks = [
 ];
 
 
-var currentInfoWindow;
-
-
-
 
 
 //Viewmodel
@@ -63,12 +59,15 @@ function ViewModel() {
 	function contentString(fsInfo) {
 			return ('<div id="content" class="windowInfo">'+ '<h2>' + fsInfo.name + '</h2>'+ '<div>'+  fsInfo.formattedAddress[0] + '<br>' + fsInfo.formattedAddress[1] + '<br>' + fsInfo.formattedPhone + '<br>' + fsInfo.url + '<br><br><small class="attribution">Info courtesy of Foursquare</small>' + '</div>' + '</div>');
 	};
+	var currentInfoWindow;
+
 	//FS credentials
 		var CLIENT_ID_Foursquare = '33UEGUFU31FFHTQSCBAPJFXKUNSSLIXMFH03BB334UBGBB20';
 		var CLIENT_SECRET_Foursquare = 'TK2WBEKFXBFN4C1QKMZIQ0YPGQVLER03NKBTWHT34YEL133A';
 
 	//Google Map
-	//Center of map is the Marin County Civic Center, ideal as it is a well-known Marin landmark in the 'middle' of the //county. Marin has the worst problem and is in the right place to show all of the Rinks.
+	//Center of map is the Marin County Civic Center, ideal as it is a well-known Marin landmark in the 'middle' of the //county.
+	//Marin (where I live) has the worst problem and is in the right place to show all of the Rinks.
 	loadMap();
 	var map;
 	function loadMap() {
@@ -326,51 +325,15 @@ function ViewModel() {
 
 
 
-
-
-
-	/*
-	var image = {
-     url: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
-     // This marker is 20 pixels wide by 32 pixels high.
-     size: new google.maps.Size(20, 32),
-     // The origin for this image is (0, 0).
-     //origin: new google.maps.Point(0, 0),
-     // The anchor for this image is the base of the flagpole at (0, 32).
-     //anchor: new google.maps.Point(0, 32)
-   };
-
-	 /* function drop() {
-	        //clearMarkers();
-	        for (var i = 0; i < neighborhoods.length; i++) {
-	          addMarkerWithTimeout(neighborhoods[i], i * 200);
-	        }
-	      }
-
-	      function addMarkerWithTimeout(position, timeout) {
-	        window.setTimeout(function() {
-	          markers.push(new google.maps.Marker({
-	            position: position,
-	            map: map,
-	            animation: google.maps.Animation.DROP
-	          }));
-	        }, timeout);
-	      }
-				*/
-
 	//create markers
 	self.Rinks().forEach(function callback(rink, index) {
 
-		//window.setTimeout(function() {  ---tried to add the drop pins with delay effect but can't get it right - ;(
-		console.log(index);
+		//window.setTimeout(function() {  //---tried to add the drop pins with delay effect but can't get it right - ;(
 		var marker = new google.maps.Marker({
 			position: rink.position,
 			map: map,
-			//title: rink.title,
-			//URL: rink.shortUrl,
 			//beachflag pin has good contrast with Hockey theme
 			icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
-			//icon: image,
 			animation: google.maps.Animation.DROP
 		});
 
@@ -379,76 +342,71 @@ function ViewModel() {
 		rink.marker.setVisible(true);
 		self.Markers.push(rink.marker);
 
+		//FS ajax
+		$.ajax({
+					type: "GET",
+					dataType: 'json',
+					cache: false,
+					url: 'https://api.foursquare.com/v2/venues/' + rink.fsID + '?client_id=' + CLIENT_ID_Foursquare + '&client_secret=' + CLIENT_SECRET_Foursquare+ '&v=20170419',
+					async: true,
+					success: function(data) {
 
-
-	//FS ajax
-						$.ajax({
-								type: "GET",
-								dataType: 'json',
-								cache: false,
-								url: 'https://api.foursquare.com/v2/venues/' + rink.fsID + '?client_id=' + CLIENT_ID_Foursquare + '&client_secret=' + CLIENT_SECRET_Foursquare+ '&v=20170419',
-								async: true,
-								success: function(data) {
-										//console.log(data.response);
-										console.log(data.response.venue.name);
-										console.log(data.response.venue.location.formattedAddress);
-										console.log(data.response.venue.contact.formattedPhone);
-										console.log(data.response.venue.url);
-										console.log(data.response.venue.hours);
-
-										//Limited testing for valid information on the fields I know that can be incomplete
-										// Note, I did submit missing data to Foursquare. I wonder if they will update their db, see Oakland Rink
-										var urlOk = data.response.venue.url;
-										if (urlOk == undefined) {urlOk = "no website info available"};
-										var phoneOk = data.response.venue.contact.formattedPhone;
-										if (phoneOk == undefined) {phoneOk = "no phone info available"};
-										//create infoWindow for each marker
-										var infoWindow = new google.maps.InfoWindow({
-											content: contentString({
-												name: data.response.venue.name,
-												formattedAddress: data.response.venue.location.formattedAddress,
-												formattedPhone: phoneOk,
-												url: urlOk,
-											})
-										});
-										rink.infoWindow = infoWindow;
-										//make marker clickable and show infoWindow when clicked
-										rink.marker.addListener('click', function () {
-										if (currentInfoWindow !== undefined) {
-												currentInfoWindow.close();
-										}
-										currentInfoWindow = rink.infoWindow;
-										rink.infoWindow.open(map, marker);
-										rink.marker.setAnimation(google.maps.Animation.BOUNCE);
-										setTimeout(function () {
-												rink.marker.setAnimation(null);
-										}, 2100); //this value gives a clean 4 bounces with a smooth (not jerky) finish
-										});
-								},
-								error: function(error) {
-										alert("Foursquare could not load data. The pins on the map will not show information if you click them. Please try the app later.");
-								}
+						//Limited testing for valid information on the fields I know that can be incomplete
+						// Note, I did submit missing data to Foursquare. I wonder if they will update their db, see Oakland Rink
+						var urlOk = data.response.venue.url;
+						if (urlOk == undefined) {urlOk = "no website info available"};
+						var phoneOk = data.response.venue.contact.formattedPhone;
+						if (phoneOk == undefined) {phoneOk = "no phone info available"};
+						//create infoWindow for each marker
+						var infoWindow = new google.maps.InfoWindow({
+							content: contentString({
+									name: data.response.venue.name,
+									formattedAddress: data.response.venue.location.formattedAddress,
+									formattedPhone: phoneOk,
+									url: urlOk,
+									})
 						});
-//}, index * 400); //trying unsuccessfully to get markers to drop one-at-a-time
+
+						//make marker clickable and show infoWindow when clicked
+						rink.infoWindow = infoWindow;
+						rink.marker.addListener('click', function () {
+							if (currentInfoWindow !== undefined) {
+									currentInfoWindow.close();
+								}
+								currentInfoWindow = rink.infoWindow;
+								rink.infoWindow.open(map, marker);
+								rink.marker.setAnimation(google.maps.Animation.BOUNCE);
+								setTimeout(function () {
+									rink.marker.setAnimation(null);
+								}, 2100); //this value gives a clean 4 bounces with a smooth (not jerky) finish
+						});
+				},
+				error: function(error) {
+					alert("Foursquare could not load data. The pins on the map will not show information if you click them. Please try the app later.");
+				}
+		});
+		//}, index * 100); //trying unsuccessfully to get markers to drop one-at-a-time
 	});
 
-	//Click on Rink in rink List
+	//Click on rink in rinkList function (note this list a ko observable).
+	//Clicking zooms to that location and opens infoWindow
 	self.listViewClick = function(rink) {
 		if (rink.name) {
 			map.setZoom(12);
 			map.panTo(rink.position);
-		rink.marker.setAnimation(google.maps.Animation.BOUNCE);
-			 if (currentInfoWindow !== undefined) { //close open window if any
-								currentInfoWindow.close();
-						}
-						currentInfoWindow = rink.infoWindow;
-						currentInfoWindow.open(map, rink.marker); // open infoWindow
+			rink.marker.setAnimation(google.maps.Animation.BOUNCE);
+			if (currentInfoWindow !== undefined) { //close open window if any
+						currentInfoWindow.close();
+			}
+			currentInfoWindow = rink.infoWindow;
+			currentInfoWindow.open(map, rink.marker); // open infoWindow
 		}
 		setTimeout(function() {
-			rink.marker.setAnimation(null); // End animation on marker after 1.5 seconds
+			rink.marker.setAnimation(null);
 		}, 2100); //this value gives a clean 4 bounces with a soft landing
 	};
-//arrayfilter routine looks for search character string position in each list item, returning -1 if not found
+
+	//Arrayfilter routine looks for search character string in search input and calculates offset position in each list item, returning -1 if not found
 	self.rinkList = ko.computed(function() {
 	return ko.utils.arrayFilter(self.Rinks(), function(stringSearch) {
 	var stringOffset = stringSearch.name.toLowerCase().indexOf(self.searchTerm().toLowerCase());
@@ -467,8 +425,7 @@ function ViewModel() {
 
 //Reset map button
 function reloadPage(){
-	console.log("button press");
-   window.location.reload();
+	window.location.reload();
 };
 
 //Google Maps error handling
@@ -486,20 +443,3 @@ function initApp() {
 	var app = new ViewModel();
 	ko.applyBindings(app);
 };
-
-/* Yelp Creds
-
-App ID
-fXgfpYRLJD4hnKyQZ8VHBQ
-App Secret
-dhvununW1lgLCwRuAP4Df08gVpwKz9j5YDy75vFYALYT6doBGXE9Jh9rAywF1P9U
-
-Post token response
-
-{
-  "access_token": "kPodXcnBFEG3S2kN61Lg--lOvCL_Tv-Y3y6QMHE2OONLluAVIPvJ42K_a6jpib14z2lXHGFgGJExsjuT-uTKCSd_v-Eb366ZjbsgoPo17r7BN7RV9p1t6DXpifX2WHYx",
-  "expires_in": 15551999,
-  "token_type": "Bearer"
-}
-
-*/
