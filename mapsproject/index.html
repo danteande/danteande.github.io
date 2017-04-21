@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset= "utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/styles.css">
+	<!-- This site finds nearest locations and info for ice rinks close to Marin County, CA that have Adult Hockey Leagues. Marin County is a particularly bad place to live because no rink is closer than a 40-minute drive. This site is to help pwoplw explore their options. -->
+	<title>When Hell Freezes Over</title>
+
+</head>
+<body>
+<div id="map" class="hockey-map" size="100px"></div>
+<div class="left-page">
+			<div class="input-field">
+			<input type="search" placeholder="Search for a Hockey Rink, e.g., enter a town name" data-bind="textInput: searchTerm, valueUpdate: 'keyup'" />
+			<!-- <input class="search-box" id="search-box" data-bind="textInput: searchTerm, valueUpdate: 'afterkeydown'" />
+			-->
+			</div>
+
+<!--list view-->
+	<div class="transbox">
+		<div class="list-area">
+			<h3>Rinks with Adult Hockey Leagues</h3>
+				<div class="list-view" data-bind="foreach: rinkList">
+					<p class="list-item" data-bind="text: $data.name, click: $parent.listViewClick"></p>
+				</div>
+				<button id="resetButton" type="button" onclick="reloadPage()">Reset Map</button>
+			</div>
+
+	</div>
+</div>
+
+<!-- consider this in a new div: <div class="map" id="map">If you can read this, there has been an error loading Google Maps. Please Try Again.</div> -->
+
+	<script type="text/javascript" src="js/knockout-3.4.2.js"></script>
+	<script type="text/javascript" src="js/maps.js"></script>
+	<script src="https://code.jquery.com/jquery.min.js"></script>
+	<script async defer type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjE8bUgRCXjZjSuQnvburEMvasHCaQo6M&libraries=places&callback=initApp" onerror="mapsError()"></script>
+
+</body>
+</html>

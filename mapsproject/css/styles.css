@@ -1,0 +1,65 @@
+html,
+body {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+}
+
+.hockey-map {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	z-index: 2;
+}
+
+input {
+	position: absolute;
+	width: 30%;
+	height: 20px;
+	top: 0;
+	z-index: 9;
+}
+
+.list-area {
+		width: 30%;
+		position: absolute;
+		top: 30px;
+		z-index: 5;
+		color: black;
+		background-color: #ffffff;
+	  border: 1px solid black;
+	  opacity: 0.6;
+		padding: 5px
+}
+
+.list-view p {
+		font-size: 15px;
+		margin: 20px 10px;
+}
+
+.list-view p:hover {
+		cursor: pointer;
+}
+
+#resetButton {
+	z-index: 6;
+}
+
+.windowInfo {
+z-index: 6;
+}
+
+.attribution {
+		width: 100%;
+		text-align: right;
+}
+
+/*.transbox {
+	position: absolute;
+	top: 20px;
+	z-index: 5;
+  background-color: #ffffff;
+  border: 1px solid black;
+  opacity: 0.6;
+  filter: alpha(opacity=60); /* For IE8 and earlier */
+}
