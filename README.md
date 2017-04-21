@@ -44,7 +44,7 @@ Warning: This requires some set-up if you are new to it.
 1. Get the delayed pin-drop working
 1. Add user address and determine closest rink by automobile travel
 
-##### Selected Resources
+#### Selected Resources
 
 1. Thanks to Google and Foursquare for their respective data sets and APIs; specifically google maps api and Foursquare venues data.
 1. Snazzy Maps: https://snazzymaps.com/style/78983/hockey
