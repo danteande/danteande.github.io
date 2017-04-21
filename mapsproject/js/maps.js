@@ -59,7 +59,10 @@ function ViewModel() {
 	function contentString(fsInfo) {
 			return ('<div id="content" class="windowInfo">'+ '<h2>' + fsInfo.name + '</h2>'+ '<div>'+  fsInfo.formattedAddress[0] + '<br>' + fsInfo.formattedAddress[1] + '<br>' + fsInfo.formattedPhone + '<br>' + fsInfo.url + '<br><br><small class="attribution">Info courtesy of Foursquare</small>' + '</div>' + '</div>');
 	};
-	var currentInfoWindow;
+	//Reset map button -updated with ko binding
+	self.resetpage = function reloadPage(){
+		window.location.reload();
+	};var currentInfoWindow;
 
 	//FS credentials
 		var CLIENT_ID_Foursquare = '33UEGUFU31FFHTQSCBAPJFXKUNSSLIXMFH03BB334UBGBB20';
@@ -424,10 +427,7 @@ function ViewModel() {
 
 //View
 
-//Reset map button
-function reloadPage(){
-	window.location.reload();
-};
+
 
 //Google Maps error handling
 function mapsError() {
