@@ -407,17 +407,18 @@ function ViewModel() {
 	};
 
 	//Arrayfilter routine looks for search character string in search input and calculates offset position in each list item, returning -1 if not found
+	//The if statement hides anything that has no character match
 	self.rinkList = ko.computed(function() {
 	return ko.utils.arrayFilter(self.Rinks(), function(stringSearch) {
-	var stringOffset = stringSearch.name.toLowerCase().indexOf(self.searchTerm().toLowerCase());
-	console.log(stringOffset);
-	if (stringOffset === -1) {
+		var stringOffset = stringSearch.name.toLowerCase().indexOf(self.searchTerm().toLowerCase());
+		console.log(stringOffset);
+		if (stringOffset === -1) {
 		stringSearch.marker.setVisible(false);
 		} else {
 		stringSearch.marker.setVisible(true);
 		}
-		return stringOffset >= 0;
-		});
+	return stringOffset >= 0;
+	});
 	}, this);
 };
 
@@ -439,7 +440,6 @@ document.getElementById("map").innerHTML = "<br><br><br><br><br><br><br><br><br>
 
 //Invoke
 function initApp() {
-	//loadMap();
 	var app = new ViewModel();
 	ko.applyBindings(app);
 };
