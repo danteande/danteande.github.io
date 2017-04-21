@@ -22,7 +22,7 @@
 				<div class="list-view" data-bind="foreach: rinkList">
 					<p class="list-item" data-bind="text: name, click: $parent.listViewClick"></p>
 				</div>
-				<button id="resetButton" type="button" onclick="reloadPage()">Reset Map</button><br><br><br>
+				<button id="resetButton" type="button" data-bind="click: resetpage">Reset Map</button><br><br><br>
 				<small>    Suggestion: Find a close rink, check out its site then call for League info</small>
 			</div>
 	</div>
