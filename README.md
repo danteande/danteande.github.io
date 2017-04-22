@@ -57,5 +57,5 @@ Warning: This requires some set-up if you are new to it.
 1. foreach specs: hhttps://www.w3schools.com/css/tryit.asp?filename=trycss_transparency
 1. keyup, keydown explanation stackoverflow: https://www.w3schools.com/css/tryit.asp?filename=trycss_transparency
 1. The usual suspects: ko documentation, google maps apis - using one of their custom pins, udacity forums and mentors
-1. Linters: http://jsbeautifier.org/for .html and js formatting and http://jshint.com/ for js syntax
+1. Linters: http://jsbeautifier.org/  for .html and js formatting and http://jshint.com/ for js syntax
 1. use strict stackoverflow ( I choose to use it at the top of my file) http://stackoverflow.com/questions/19910134/jshint-use-strict-issue
