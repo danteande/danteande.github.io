@@ -42,31 +42,27 @@ var Rinks = [
 
 ];
 
-
-
-
 //Viewmodel
 
 function ViewModel() {
-
-
 
 	//Declaring variables and functions
 	var self = this;
 	self.Markers = [];
 	self.Rinks = ko.observableArray(Rinks);
-	self.searchTerm = ko.observable("");
+	self.searchTerm = ko.observable('');
 	function contentString(fsInfo) {
 			return ('<div id="content" class="windowInfo">'+ '<h2>' + fsInfo.name + '</h2>'+ '<div>'+  fsInfo.formattedAddress[0] + '<br>' + fsInfo.formattedAddress[1] + '<br>' + fsInfo.formattedPhone + '<br>' + fsInfo.url + '<br><br><small class="attribution">Info courtesy of Foursquare</small>' + '</div>' + '</div>');
-	};
-	//Reset map button -updated with ko binding
+	}
+	//Reset map button with ko binding updated in v2
 	self.resetpage = function reloadPage(){
 		window.location.reload();
-	};var currentInfoWindow;
+	};
+	var currentInfoWindow;
 
 	//FS credentials
-		var CLIENT_ID_Foursquare = '33UEGUFU31FFHTQSCBAPJFXKUNSSLIXMFH03BB334UBGBB20';
-		var CLIENT_SECRET_Foursquare = 'TK2WBEKFXBFN4C1QKMZIQ0YPGQVLER03NKBTWHT34YEL133A';
+	var CLIENT_ID_Foursquare = '33UEGUFU31FFHTQSCBAPJFXKUNSSLIXMFH03BB334UBGBB20';
+	var CLIENT_SECRET_Foursquare = 'TK2WBEKFXBFN4C1QKMZIQ0YPGQVLER03NKBTWHT34YEL133A';
 
 	//Google Map
 	//Center of map is the Marin County Civic Center, ideal as it is a well-known Marin landmark in the 'middle' of the //county.
@@ -83,7 +79,7 @@ function ViewModel() {
 			styles: [{
 				"featureType": "all",
 				"elementType": "labels.text.fill",
-		"stylers": [{
+				"stylers": [{
 			"saturation": 100
 		}, {
 			"color": "#000000"
@@ -324,14 +320,10 @@ function ViewModel() {
 
 	});
 
-	};
-
-
+	}
 
 	//create markers
 	self.Rinks().forEach(function callback(rink, index) {
-
-		//window.setTimeout(function() {  //---tried to add the drop pins with delay effect but can't get it right - ;(
 		var marker = new google.maps.Marker({
 			position: rink.position,
 			map: map,
@@ -357,11 +349,11 @@ function ViewModel() {
 						//Limited testing for valid information on the fields I know that can be incomplete
 						// Note, I did submit missing data to Foursquare. I wonder if they will update their db, see Oakland Rink
 						var urlOk = data.response.venue.url;
-						if (urlOk == undefined) {urlOk = "no website info available"};
+						if (urlOk === undefined) {urlOk = "no website info available";}
 						var phoneOk = data.response.venue.contact.formattedPhone;
-						if (phoneOk == undefined) {phoneOk = "no phone info available"};
+						if (phoneOk === undefined) {phoneOk = "no phone info available";}
 						//create infoWindow for each marker
-						var infoWindow = new google.maps.InfoWindow({
+						 var infoWindow = new google.maps.InfoWindow({
 							content: contentString({
 									name: data.response.venue.name,
 									formattedAddress: data.response.venue.location.formattedAddress,
@@ -382,13 +374,17 @@ function ViewModel() {
 								setTimeout(function () {
 									rink.marker.setAnimation(null);
 								}, 2100); //this value gives a clean 4 bounces with a smooth (not jerky) finish
+								//center map on pin after it's clicked -updated in v2
+								setTimeout(function () {
+									//map.setZoom(10);
+									map.panTo(rink.position);
+								}, 2500);
 						});
 				},
 				error: function(error) {
 					alert("Foursquare could not load data. The pins on the map will not show information if you click them. Please try the app later.");
 				}
 		});
-		//}, index * 100); //trying unsuccessfully to get markers to drop one-at-a-time
 	});
 
 	//Click on rink in rinkList function (note this list a ko observable).
@@ -423,23 +419,17 @@ function ViewModel() {
 	return stringOffset >= 0;
 	});
 	}, this);
-};
 
-//View
-
-
-
-//Google Maps error handling
-function mapsError() {
-		alert('Google Maps could not load. Please try the app again later.')
-
-//this might have limited value on a web server. It was helpful when run locally.
-document.getElementById("map").innerHTML = "<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>------------------------------------------------------------------- ------------If you can read this, there has been an error loading Google Maps. Please Try Again.";
-};
-
+	//Google Maps error handling
+	function mapsError() {
+		alert('Google Maps could not load. Please try the app again later.');
+		//this might have limited value on a web server. It was helpful when run locally.
+		document.getElementById("map").innerHTML = "<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>------------------------------------------------------------------- ------------If you can read this, there has been an error loading Google Maps. Please Try Again.";
+	}
+}
 
 //Invoke
 function initApp() {
 	var app = new ViewModel();
 	ko.applyBindings(app);
-};
+}
