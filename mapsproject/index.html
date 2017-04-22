@@ -1,39 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset= "utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="css/styles.css">
-	<!-- This site finds nearest locations and info for ice rinks close to Marin County, CA that have Adult Hockey Leagues. Marin County is a particularly bad place to live because no rink is closer than a 40-minute drive. This site is to help pwoplw explore their options. -->
+	<meta charset="utf-8">
+	<meta content="width=device-width, initial-scale=1" name="viewport">
+	<link href="css/styles.css" rel="stylesheet"><!-- This site finds nearest locations and info for ice rinks close to Marin County, CA that have Adult Hockey Leagues. Marin County is a particularly bad place to live because no rink is closer than a 40-minute drive. This site is to help pwoplw explore their options. -->
 	<title>When Hell Freezes Over</title>
-
 </head>
 <body>
-<div id="map" class="hockey-map"></div>
-<div class="left-page">
-			<div class="input-field">
-			<input type="search" placeholder="Filter Rink list" data-bind="textInput: searchTerm, valueUpdate: 'keyup'" />
-			</div>
-
-
-	<div class="transbox">
-		<div class="list-area">
-			<h3>Rinks with Adult Hockey Leagues</h3>
+	<div class="hockey-map" id="map"></div>
+	<div class="left-page">
+		<div class="input-field">
+			<input data-bind="textInput: searchTerm, valueUpdate: 'keyup'" placeholder="Filter Rink list" type="search">
+		</div>
+		<div class="transbox">
+			<div class="list-area">
+				<h3>Rinks with Adult Hockey Leagues</h3>
 				<!--adding ko bindings to rinkList -->
 				<div class="list-view" data-bind="foreach: rinkList">
 					<p class="list-item" data-bind="text: name, click: $parent.listViewClick"></p>
 				</div>
 				<!-- note reset button is a ko click binding like the above listViewClick -->
-				<button id="resetButton" type="button" data-bind="click: resetpage">Reset Map</button><br><br><br>
-				<small>    Suggestion: Find a close rink, check out its site then call for League info</small>
+				<button data-bind="click: resetpage" id="resetButton" type="button">Reset Map</button><br>
+				<br>
+				<br>
+				<small>Suggestion: Find a close rink, check out its site then call for League info</small>
 			</div>
+		</div>
 	</div>
-</div>
-
-<script type="text/javascript" src="js/knockout-3.4.2.js"></script>
-<script type="text/javascript" src="js/maps.js"></script>
-<script src="https://code.jquery.com/jquery.min.js"></script>
-<script async defer type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjE8bUgRCXjZjSuQnvburEMvasHCaQo6M&libraries=places&callback=initApp" onerror="mapsError()"></script>
-
+	<script src="js/knockout-3.4.2.js">
+	</script>
+	<script src="js/maps.js">
+	</script>
+	<script src="https://code.jquery.com/jquery.min.js">
+	</script>
+	<script async defer onerror="mapsError()" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjE8bUgRCXjZjSuQnvburEMvasHCaQo6M&libraries=places&callback=initApp" type="text/javascript">
+	</script>
 </body>
 </html>
