@@ -154,11 +154,6 @@ var projects = {
         "dates": "2014-in progress",
         "description": "Digital remix of the book, <i>Grateful Dead Family Album</i>",
         "images": ["https://static.wixstatic.com/media/f808dc_130707e49cc147b4a5d7d352f91e9b84.png/v1/fill/w_1164,h_946,al_c,usm_0.66_1.00_0.01/f808dc_130707e49cc147b4a5d7d352f91e9b84.png", "https://static.wixstatic.com/media/f808dc_319a3b6cf700405cb7e16dd63bfb6b47.png/v1/fill/w_234,h_290,al_c,usm_0.66_1.00_0.01/f808dc_319a3b6cf700405cb7e16dd63bfb6b47.png"]
-    }, {
-        "title": "GDFA",
-        "dates": "2014-in progress",
-        "description": "Digital remix of the book, <i>Grateful Dead Family Album</i>",
-        "images": ["https://static.wixstatic.com/media/f808dc_130707e49cc147b4a5d7d352f91e9b84.png/v1/fill/w_1164,h_946,al_c,usm_0.66_1.00_0.01/f808dc_130707e49cc147b4a5d7d352f91e9b84.png", "https://static.wixstatic.com/media/f808dc_319a3b6cf700405cb7e16dd63bfb6b47.png/v1/fill/w_234,h_290,al_c,usm_0.66_1.00_0.01/f808dc_319a3b6cf700405cb7e16dd63bfb6b47.png"]
     }],
     display: function() {
         $.each(projects.projects, function(key, value) {
