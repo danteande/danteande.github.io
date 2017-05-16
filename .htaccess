@@ -2,6 +2,6 @@
 #    ExpiresActive On
 #    ExpiresDefault "now"
 #    <FilesMatch "/css/print\\.css$">
-#        ExpiresByType text/css "access plus 1 month"
+#        ExpiresByType text/css "access plus 1 second"
 #    </FilesMatch>
 #</IfModule>
